@@ -1,0 +1,18 @@
+
+
+<app-movie-create></app-movie-create>
+
+<h1>Les films du mois</h1>
+
+<div class="container-fluid">
+    <div class="row">
+<div *ngFor="let unFilm of movies" class="card col-2" style="width: 18rem;">
+    <img class="card-img-top" src={{unFilm.afficheFilm}} alt="Card image cap">
+    <div class="card-body">
+      <h3 class="card-title">{{unFilm.nomFilm}}</h3>
+      <p>{{unFilm.description}}</p>
+      <p>{{unFilm.video}}</p>
+    </div>
+  </div>
+</div>
+</div>
