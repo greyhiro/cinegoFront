@@ -1,45 +1,55 @@
+
+
+
 <div class="jumbotron">
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <h3>Angular 7 Reactive Form Validation</h3>
-                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <h3>Création d'un nouveau film</h3>
+                <form [formGroup]="registerFilm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
-                        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                        <label>Nom du film</label>
+                        <input type="text" formControlName="nomFilm" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nomFilm.errors }" />
+                        <div *ngIf="submitted && f.nomFilm.errors" class="invalid-feedback">
+                            <div *ngIf="f.nomFilm.errors.required">Nom du film demandé</div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
-                        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                        <label>Nom Original du film</label>
+                        <input type="text" formControlName="nomFilmOriginal" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nomFilmOriginal.errors }" />
+                        <div *ngIf="submitted && f.nomFilmOriginal.errors" class="invalid-feedback">
+                            <div *ngIf="f.nomFilmOriginal.errors.required">Last Name is required</div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                            <div *ngIf="f.email.errors.required">Email is required</div>
-                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                        <label>Description du film</label>
+                        <input type="text" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+                        <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                            <div *ngIf="f.description.errors.required">une description est demandé</div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                            <div *ngIf="f.password.errors.required">Password is required</div>
-                            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                        <label>Url de l'affiche du film</label>
+                        <input type="text" formControlName="afficheFilm" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.afficheFilm.errors }" />
+                        <div *ngIf="submitted && f.afficheFilm.errors" class="invalid-feedback">
+                          
+                            <div *ngIf="f.afficheFilm.errors.minlength">Veuillez donner une url pour l'affiche du film </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Confirm Password</label>
-                        <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
-                        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-                            <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
-                            <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                        <label>date de realisation</label>
+                        <input type="text" formControlName="dateRealisation" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dateRealisation.errors }" />
+                        <div *ngIf="submitted && f.dateRealisation.errors" class="invalid-feedback">
+                            <div *ngIf="f.dateRealisation.errors.required">Veuillez donner une date de réalisation est requise</div>
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>video</label>
+                        <input type="text" formControlName="video" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.video.errors }" />
+                        <div *ngIf="submitted && f.video.errors" class="invalid-feedback">
+                            <div *ngIf="f.video.errors.required">veuillez donner une video trailer</div>
+                            
                         </div>
                     </div>
                     <div class="form-group">
@@ -50,3 +60,4 @@
         </div>
     </div>
 </div>
+

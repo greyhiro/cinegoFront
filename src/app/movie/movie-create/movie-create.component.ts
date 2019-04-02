@@ -2,12 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MovieService } from './../../service/movie-service.service'
 import { Movie } from 'src/app/models/movie';
 
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { RouterModule} from '@angular/router';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -22,8 +19,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class MovieCreateComponent implements OnInit {
 
   movie: Movie;
-  registerForm: FormGroup;
+  registerFilm: FormGroup;
     submitted = false;
+   
 
 
   constructor(private movieService : MovieService, private formBuilder: FormBuilder) {
@@ -32,28 +30,32 @@ export class MovieCreateComponent implements OnInit {
 
  
    ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-        firstName: ['', Validators.required],
-        lastName: ['', Validators.required],
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.minLength(6)]],
-        confirmPassword: ['', Validators.required]
+    
+
+
+    this.registerFilm = this.formBuilder.group({
+        nomFilm: ['', [Validators.required, Validators.minLength(2)]],
+        nomFilmOriginal: ['', [Validators.required, Validators.minLength(2)]],
+        description: ['', [Validators.required, Validators.minLength(2)]],
+        afficheFilm: ['', [Validators.required, Validators.minLength(6)]],
+        dateRealisation: ['', Validators.required],
+        video : ['', [Validators.required, Validators.minLength(2)]],
+
+       
     }, {
       
     });
+
+    
 }
 
-// convenience getter for easy access to form fields
-get f() { return this.registerForm.controls; }
+
+
 
 onSubmit() {
-    this.submitted = true;
+  this.submitted=true;
+console.log(JSON.stringify(this.registerFilm.value));
 
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-        return;
-    }
-
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
+   this.movieService.sauvegarderFilm(this.registerFilm.value).subscribe(film => "film créer avec succes");
 }
 }
