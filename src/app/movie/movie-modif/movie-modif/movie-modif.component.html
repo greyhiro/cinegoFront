@@ -1,0 +1,63 @@
+
+  {{nomFilm}}
+<div class="jumbotron" >
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+          
+              <h3>Modification du film</h3>
+              <form [formGroup]="registerFilm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                      <label>Nom du film</label>
+                      <input  type="text" formControlName="nomFilm" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nomFilm.errors }" />
+                      <div *ngIf="submitted && f.nomFilm.errors" class="invalid-feedback">
+                          <div *ngIf="f.nomFilm.errors.required">Nom du film demandé</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Nom Original du film</label>
+                      <input type="text" formControlName="nomFilmOriginal" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nomFilmOriginal.errors }" />
+                      <div *ngIf="submitted && f.nomFilmOriginal.errors" class="invalid-feedback">
+                          <div *ngIf="f.nomFilmOriginal.errors.required">Last Name is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Description du film</label>
+                      <input type="text" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+                      <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                          <div *ngIf="f.description.errors.required">une description est demandé</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Url de l'affiche du film</label>
+                      <input type="text" formControlName="afficheFilm" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.afficheFilm.errors }" />
+                      <div *ngIf="submitted && f.afficheFilm.errors" class="invalid-feedback">
+                        
+                          <div *ngIf="f.afficheFilm.errors.minlength">Veuillez donner une url pour l'affiche du film </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>date de realisation</label>
+                      <input type="text" formControlName="dateRealisation" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dateRealisation.errors }" />
+                      <div *ngIf="submitted && f.dateRealisation.errors" class="invalid-feedback">
+                          <div *ngIf="f.dateRealisation.errors.required">Veuillez donner une date de réalisation est requise</div>
+                          
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>video</label>
+                      <input type="text" formControlName="video" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.video.errors }" />
+                      <div *ngIf="submitted && f.video.errors" class="invalid-feedback">
+                          <div *ngIf="f.video.errors.required">veuillez donner une video trailer</div>
+                          
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <button class="btn btn-primary">Register</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+

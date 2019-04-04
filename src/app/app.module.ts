@@ -17,6 +17,8 @@ import { AppRoutingModule } from './app-routing-module';
 import { AcceuilComponent } from './Acceuil/acceuil/acceuil.component';
 import { MovieCreateComponent } from './movie/movie-create/movie-create.component';
 import {DatePickerComponent} from './DatePicker/datepicker/datepicker.component';
+import { MovieModifComponent } from './movie/movie-modif/movie-modif/movie-modif.component';
+
 
 
 const appRoutes: Routes = [
@@ -31,7 +33,8 @@ const appRoutes: Routes = [
     MenuBarComponent,
     AcceuilComponent,
     MovieCreateComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    MovieModifComponent
    
   ],
   imports: [

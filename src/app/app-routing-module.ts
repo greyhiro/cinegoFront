@@ -5,14 +5,18 @@ import { AppComponent } from './app.component'
 import { AcceuilComponent }  from './Acceuil/acceuil/acceuil.component'
 import { CommonModule } from '@angular/common';
 import { MovieCreateComponent } from './movie/movie-create/movie-create.component'
+import { MovieModifComponent } from './movie/movie-modif/movie-modif/movie-modif.component'
+
 
 
 
 const routes: Routes = [
     {path:"Film", component: MoviesListComponent},
     {path:"Acceuil", component: AcceuilComponent},
-    {path:"*", component:AcceuilComponent},
-    {path:"Film/Create", component:MovieCreateComponent}
+    {path:"", component:AcceuilComponent},
+    {path:"Film/Create", component:MovieCreateComponent},
+    {path:"Film/Modif/:id", component:MovieModifComponent }
+
    
 ];
 

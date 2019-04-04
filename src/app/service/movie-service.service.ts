@@ -24,7 +24,10 @@ export class MovieService {
   findAll(): Observable<Movie[]>{
     //api request sur la notre backend
     //http get() => retourne un Observable
-    return this.http.get<Movie[]>(`${API_BASE_URL}Film`);
+    const headers = new HttpHeaders()
+            .set("Content-Type", "application/json");
+
+    return this.http.get<Movie[]>(`${API_BASE_URL}Film`, {headers});
 
   }
   sauvegarderFilm(movie: Movie): Observable<Movie> {
@@ -38,17 +41,12 @@ export class MovieService {
   
     
     
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Accept': 'application/json',
-      
-      }),
-      withCredentials: true
-    };
-  
+    const headers = new HttpHeaders()
+    .set("Content-Type", "application/json");
+
     
    
-    return this.http.post<Movie>(`${API_BASE_URL}Film/Create`,  movie, httpOptions)
+    return this.http.post<Movie>(`${API_BASE_URL}Film/Create`,  movie, {headers})
       
   }
 
@@ -57,14 +55,16 @@ export class MovieService {
 
 
    
-    return this.http.put<Movie>(`${API_BASE_URL}Film/Modif/{{id}}`, movie,
-                            {
-                             headers:new HttpHeaders()
-                             .set('Content-Type','application/json')
-                             });
+    return this.http.put<Movie>(`${API_BASE_URL}Film/Modif/${id}`, movie)
                              
 
 
+  }
+
+  FindFilmById(id:number) :Observable<Movie>{
+
+    return this.http.get<Movie>(`${API_BASE_URL}Film/${id}`);
+                       
   }
  
  

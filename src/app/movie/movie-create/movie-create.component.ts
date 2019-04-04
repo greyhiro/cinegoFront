@@ -5,12 +5,6 @@ import { Movie } from 'src/app/models/movie';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-
-
-
-
-
-
 @Component({
   selector: 'app-movie-create',
   templateUrl: './movie-create.component.html',
@@ -54,8 +48,8 @@ export class MovieCreateComponent implements OnInit {
 
 onSubmit() {
   this.submitted=true;
-console.log(JSON.stringify(this.registerFilm.value));
 
-   this.movieService.sauvegarderFilm(this.registerFilm.value).subscribe(film => "film créer avec succes");
+
+   this.movieService.sauvegarderFilm(this.registerFilm.value).subscribe(ok => console.log("film créer avec success"), err =>  console.log("film impossible à céer"));
 }
 }
