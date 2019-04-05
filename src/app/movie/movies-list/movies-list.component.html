@@ -1,17 +1,27 @@
 
 
 <h1>Les films du mois</h1>
-
+<div class="{{Class}}" role="alert">
+  {{Response}}
+ </div>
 <div class="container-fluid">
     <div class="row">
-<div *ngFor="let unFilm of movies" class="card col-2" style="width: 18rem;">
-    <img class="card-img-top" src={{unFilm.afficheFilm}} alt="Card image cap">
+<div *ngFor="let unFilm of movies" class="card col-3" style="width: 18rem;">
+    <img class="card-img-top" src={{unFilm.afficheFilm}}>
     <div class="card-body">
       <h3 class="card-title">{{unFilm.nomFilm}}</h3>
       <p>{{unFilm.description}}</p>
-      <p>{{unFilm.video}}</p>
+      <p data-ng-if="unfilm.video!='false'">{{unFilm.video}}</p>
       <a type="button" class="btn btn-primary" href="./Film/Modif/{{unFilm.idFilm}}">Modifier<span class="sr-only">(current)</span></a>
+      <button type="submit " (click)="onDelete(unFilm.idFilm) " class="btn btn-danger">supprimer</button>
+      <a type="button" class="btn btn-primary" href="./Sceance/Create/{{unFilm.idFilm}}">Créer une scéance<span class="sr-only">(current)</span></a>
+     
+    </div>
+    <div class="{{Class}}" role="alert">
+        {{Response}}
     </div>
   </div>
 
 </div>
+
+

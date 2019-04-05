@@ -1,0 +1,19 @@
+<h1>Chosissez une heure et une date pour votre Sceance</h1>
+
+
+
+<ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+<pre>Model: {{ model | json }}</pre>
+
+<ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
+<hr>
+<pre>Selected time: {{time | json}}</pre>
+
+<button type="submit " (click)="onSubmit() " class="btn btn-danger">Creer Sceance</button>
+
+<div class="{{Class}}" role="alert">
+    {{Response}}
+   </div>
+
+
+

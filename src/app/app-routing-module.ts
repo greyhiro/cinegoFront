@@ -6,6 +6,7 @@ import { AcceuilComponent }  from './Acceuil/acceuil/acceuil.component'
 import { CommonModule } from '@angular/common';
 import { MovieCreateComponent } from './movie/movie-create/movie-create.component'
 import { MovieModifComponent } from './movie/movie-modif/movie-modif/movie-modif.component'
+import { SceanceCreateComponent } from './Sceance/sceance-create/sceance-create.component'
 
 
 
@@ -15,7 +16,8 @@ const routes: Routes = [
     {path:"Acceuil", component: AcceuilComponent},
     {path:"", component:AcceuilComponent},
     {path:"Film/Create", component:MovieCreateComponent},
-    {path:"Film/Modif/:id", component:MovieModifComponent }
+    {path:"Film/Modif/:id", component:MovieModifComponent },
+    {path:"Sceance/Create/:id", component:SceanceCreateComponent}
 
    
 ];

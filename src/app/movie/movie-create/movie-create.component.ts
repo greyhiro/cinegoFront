@@ -15,7 +15,8 @@ export class MovieCreateComponent implements OnInit {
   movie: Movie;
   registerFilm: FormGroup;
     submitted = false;
-   
+   Class: string;
+   Response:string;
 
 
   constructor(private movieService : MovieService, private formBuilder: FormBuilder) {
@@ -50,6 +51,14 @@ onSubmit() {
   this.submitted=true;
 
 
-   this.movieService.sauvegarderFilm(this.registerFilm.value).subscribe(ok => console.log("film créer avec success"), err =>  console.log("film impossible à céer"));
+   this.movieService.sauvegarderFilm(this.registerFilm.value).subscribe(ok => {
+   
+   this.Class = "alert alert-success";
+   this.Response = "Le film à bien été enregistré";
+
+  }, err =>  {console.log("film impossible à céer");
+this.Class = "alert alert-danger";
+this.Response = "Le film n'as pas pue être enregistré";
+});
 }
 }
