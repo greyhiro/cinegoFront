@@ -1,23 +1,14 @@
 import {Movie} from './movie'
-export class Sceance {
+import { Salle } from './salle';
+export class Sceances {
 
     constructor(
-        public idSceance:number,
+        
         public dateEtHeureSceance:string,
-        public film:Movie
+        public film:Movie,
+        public salle: Salle
     )
     
-    {}
-}
-/*	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column
-	private Integer idSceance;
+	{}
 	
-	@Column
-	private String dateEtHeureSceance;
-	
-	@ManyToOne
-	@JoinColumn(name = "Fk_Film")
-	private Film film;
-	*/ 
+	}

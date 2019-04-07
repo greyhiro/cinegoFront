@@ -1,0 +1,17 @@
+<h1>Les scéances pour ce films</h1>
+<div class="{{Class}}" role="alert">
+    {{Response}}
+   </div>
+<div *ngFor ="let uneSceance of sceances" class="col-6">
+    <img class="card-img-top" src={{uneSceance.film.afficheFilm}}   class="col-4">
+    <h2 class="col-4">heure et date Scéances: {{uneSceance.film.nomFilm}} </h2>
+    <h2 class="col-4">{{uneSceance.dateEtHeureSceance}}</h2>
+    <button class= "btn-primary" (click)=Reserver(uneSceance)>Reserver Sceance</button>
+    
+    
+
+</div>
+
+<div class="{{Class}}" role="alert">
+    {{Response}}
+   </div>

@@ -19,6 +19,8 @@ import { MovieCreateComponent } from './movie/movie-create/movie-create.componen
 import {DatePickerComponent} from './DatePicker/datepicker/datepicker.component';
 import { MovieModifComponent } from './movie/movie-modif/movie-modif/movie-modif.component';
 import { SceanceCreateComponent } from './Sceance/sceance-create/sceance-create.component';
+import { SceanceListComponent } from './Sceance/sceance-list/sceance-list.component';
+import { CommandeListComponent } from './Commande/commande-list/commande-list.component';
 
 
 
@@ -36,7 +38,9 @@ const appRoutes: Routes = [
     MovieCreateComponent,
     DatePickerComponent,
     MovieModifComponent,
-    SceanceCreateComponent
+    SceanceCreateComponent,
+    SceanceListComponent,
+    CommandeListComponent
    
   ],
   imports: [

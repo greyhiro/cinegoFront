@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../service/movie-service.service';
 import { Movie } from '../../models/movie';
 import { SceanceService } from '../../service/sceance.service';
-import { Sceance } from '../../models/sceance';
+import { Sceances } from '../../models/sceance';
 import { observable, Observable } from 'rxjs';
 
 
@@ -27,7 +27,6 @@ export class MoviesListComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.movieService.findAll().subscribe(Tabmovies =>this.movies = Tabmovies, error => console.log("Problème avec la récupération des films ....") )
     this.movieService.filmObs.subscribe(filmRecup => this.movies.push(filmRecup));
     
@@ -36,6 +35,7 @@ export class MoviesListComponent implements OnInit {
   onDelete(idFilm:string){
 
     this.idFilmNumber = Number (idFilm);
+    
     this.movieService.deleteFilmById(this.idFilmNumber).subscribe(ok =>{console.log("le film à été supprimé");
     this.Class = "alert alert-success";
     this.Response = "Le film à bien été supprimé";

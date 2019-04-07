@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Sceance } from '../models/sceance';
+import { Sceances } from '../models/sceance';
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { Observable, Subject  } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -12,32 +12,34 @@ const API_BASE_URL: string = environment.apiBaseUrl;
 })
 export class SceanceService {
 
-  private SceanceSUb: Subject<Sceance> = new Subject();
+  private SceanceSUb: Subject<Sceances> = new Subject();
 
-  get filmObs(): Observable<Sceance> {
+  get filmObs(): Observable<Sceances> {
     return this.SceanceSUb.asObservable();
 
   }
 
   constructor(private http:HttpClient) { }
 
-  getAllSceances(): Observable<Sceance[]>{
+  getAllSceances(): Observable<Sceances[]>{
    
 
-    return this.http.get<Sceance[]>(`${API_BASE_URL}/Sceance`);
+    return this.http.get<Sceances[]>(`${API_BASE_URL}Sceance`);
 
   }
 
-  getSceancesByFilmId(id:number): Observable<Sceance[]>{
+  getSceancesByFilmId(id:number): Observable<Sceances[]>{
    
 
-    return this.http.get<Sceance[]>(`${API_BASE_URL}/Sceance/${id}`);
+    return this.http.get<Sceances[]>(`${API_BASE_URL}Sceance/${id}`);
 
   }
 
-  createSceanceByFilm(sceance:Sceance): Observable<Sceance>{
+  createSceanceByFilm(sceance:Sceances): Observable<Sceances>{
 
-    return this.http.post<Sceance>(`${API_BASE_URL}Sceance/Create/`, sceance);
+    console.log(JSON.stringify(sceance));
+    
+    return this.http.post<Sceances>(`${API_BASE_URL}Sceance/Create/`, sceance);
 
   }
 
