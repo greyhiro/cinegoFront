@@ -21,6 +21,8 @@ import { MovieModifComponent } from './movie/movie-modif/movie-modif/movie-modif
 import { SceanceCreateComponent } from './Sceance/sceance-create/sceance-create.component';
 import { SceanceListComponent } from './Sceance/sceance-list/sceance-list.component';
 import { CommandeListComponent } from './Commande/commande-list/commande-list.component';
+import { PipeDatePipe } from './pipe/pipe-date.pipe';
+import { SalleReservePlaceComponent } from './salle/salle-reserve-place/salle-reserve-place.component';
 
 
 
@@ -40,7 +42,9 @@ const appRoutes: Routes = [
     MovieModifComponent,
     SceanceCreateComponent,
     SceanceListComponent,
-    CommandeListComponent
+    CommandeListComponent,
+    PipeDatePipe,
+    SalleReservePlaceComponent
    
   ],
   imports: [

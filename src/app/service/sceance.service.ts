@@ -28,6 +28,13 @@ export class SceanceService {
 
   }
 
+  getSceancesById(id:number): Observable<Sceances[]>{
+   
+
+    return this.http.get<Sceances[]>(`${API_BASE_URL}Sceance/Reserver/${id}`);
+
+  }
+
   getSceancesByFilmId(id:number): Observable<Sceances[]>{
    
 

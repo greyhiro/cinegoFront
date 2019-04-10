@@ -2,12 +2,11 @@ import { Movie } from './movie';
 
 export class Salle {
 
-    public idSalles:number;
+    public idSalle:number;
     public nomSalle:string;
-	private nbplaces: number;
-	private nbPlaceHandicap: number;
-	private FichierXMLplace: string;
-	private idCinema: Movie;
-	
-
+	public nbplaces: number;
+	public nbPlaceHandicap: number;
+	public FichierXMLplace: string;
+	public idCinema: Movie;
 }
+

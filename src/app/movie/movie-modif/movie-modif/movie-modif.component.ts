@@ -71,7 +71,7 @@ export class MovieModifComponent implements OnInit {
 }
 
 
-
+get f() { return this.registerFilm.controls; }
 
 onSubmit() {
 

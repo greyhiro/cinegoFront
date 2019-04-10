@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <h3>Création d'un nouveau film</h3>
-                <form [formGroup]="registerFilm" (ngSubmit)="onSubmit()">
+                <form  [formGroup]="registerFilm"  (ngSubmit)="onSubmit()">
                     <div class="form-group">
                         <label>Nom du film</label>
                         <input type="text" formControlName="nomFilm" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nomFilm.errors }" />

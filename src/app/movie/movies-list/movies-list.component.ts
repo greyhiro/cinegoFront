@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵqueryRefresh } from '@angular/core';
 import { MovieService } from '../../service/movie-service.service';
 import { Movie } from '../../models/movie';
 import { SceanceService } from '../../service/sceance.service';
@@ -27,7 +27,14 @@ export class MoviesListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.movieService.findAll().subscribe(Tabmovies =>this.movies = Tabmovies, error => console.log("Problème avec la récupération des films ....") )
+    this.movieService.findAll().subscribe(Tabmovies =>{this.movies = Tabmovies;
+      this.Class = "alert alert-success";
+      this.Response = "récupération des films via tmdb Movie";
+    },
+     error => {console.log("Problème avec la récupération des films ....");
+    this.Class = "alert alert-danger";
+    this.Response = "problème de récupération des films ....";
+  });
     this.movieService.filmObs.subscribe(filmRecup => this.movies.push(filmRecup));
     
   }
@@ -39,7 +46,7 @@ export class MoviesListComponent implements OnInit {
     this.movieService.deleteFilmById(this.idFilmNumber).subscribe(ok =>{console.log("le film à été supprimé");
     this.Class = "alert alert-success";
     this.Response = "Le film à bien été supprimé";
-    this.movieService.filmObs.subscribe(filmAdelete => this.movies.splice( 1 , this.movies.length, filmAdelete, ));
+    this.movieService.findAll().subscribe(Tabmovies =>this.movies = Tabmovies);
 
 }, err=> {console.log("le film à pas été supprimé ....");
 this.Class = "alert alert-danger";
@@ -47,9 +54,6 @@ this.Response = "Le film n'as pas été supprimé";
     });
   }
 
-  onCreateSceance(idFilm:string){
-
-
-  }
+  
 }
 

@@ -4,7 +4,8 @@ export class Commande {
   sceance: any; 
 
     constructor(
-    
+        
+        idCommande: number,
         sceance: Sceances
    
 ) {}

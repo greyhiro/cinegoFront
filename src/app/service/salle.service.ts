@@ -32,6 +32,15 @@ export class SalleService{
 
   }
 
+  findSalleById(idSalle:number): Observable<Salle>{
+
+    return this.http.get<Salle>(`${API_BASE_URL}Salles/${idSalle}`);
+
+  }
+
+ 
+
+
 
 
 }

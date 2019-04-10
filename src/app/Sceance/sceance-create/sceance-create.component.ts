@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
 import {DatePickerComponent} from './../../DatePicker/datepicker/datepicker.component';
 import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 import {Sceances} from '../../models/sceance';
@@ -32,17 +32,75 @@ export class SceanceCreateComponent implements OnInit {
   salle:Salle;
   choixSalle : string;
   nomFilm :string;
+  choixDate: string;
+  Mois: string;
+  MoisString : string;
+  heureChoisie: string;
+  day: string;
+  month: string;
+  hour: string;
+  minute: string;
  
-  
 
   constructor(private salleService:SalleService ,private calendar: NgbCalendar, private sceanceService:SceanceService, private movieService: MovieService, private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
-  selectToday() {
-    this.model = this.calendar.getToday();
+  
     
+changeDate(){
+  
+  
+  this.MoisString = this.model.month.toString();
 
+  console.log(this.model.month);
+  if(this.MoisString=="1"){
+    this.Mois = "janvier"
   }
+  if(this.MoisString=="2"){
+    this.Mois = "février"
+  }
+  if(this.MoisString=="3"){
+    this.Mois = "mars"
+  }
+  if(this.MoisString=="4"){
+    this.Mois = "avril"
+  }
+  if(this.MoisString=="5"){
+    this.Mois = "mai"
+  }
+  if(this.MoisString=="6"){
+    this.Mois = "juin"
+  }
+  if(this.MoisString=="7"){
+    this.Mois = "juiller"
+  }
+  if(this.MoisString=="8"){
+    this.Mois = "aout"
+  }
+  if(this.MoisString=="9"){
+    this.Mois = "septembre"
+  }
+  if(this.MoisString=="10"){
+    this.Mois = "octobre"
+  }
+  if(this.MoisString=="11"){
+    this.Mois = "nomvembre"
+  }
+  if(this.MoisString=="12"){
+    this.Mois = "décembre"
+  }
+
+  this.choixDate = "vous avez choisie comme date: " + this.model.day + " " + this.Mois + " " +this.model.year;
+}
+
+    
+changeHeure(){
+
+  this.heureChoisie = "Vous avez choisie l'heure: " + this.time.hour +" h " + this.time.minute;
+
+}
+  
+
 
 
   onClickSalle(uneSalle: Salle)
@@ -58,8 +116,34 @@ export class SceanceCreateComponent implements OnInit {
 
   onSubmit(){
   
-    this.model = this.calendar.getToday();
-    this.dateEtHeureSceance = this.model.year +"-"+this.model.month+"-"+this.model.day+" " +this.time.hour+":"+this.time.minute.toString() ;
+    if(this.model.day.toString().length==1)
+    {
+      this.day = "0"+this.model.day;
+    }else
+    this.day = ""+this.model.day;
+
+    if(this.model.month.toString().length==1)
+    {
+      this.month = "0"+this.model.month;
+    }else this.month=""+this.model.month;
+
+    if(this.time.hour.toString().length==1)
+    {
+      this.hour = "0"+this.time.hour;
+    }else
+    this.hour = ""+this.time.hour;
+    if(this.time.minute.toString().length==1)
+    {
+      this.minute = "0"+this.time.minute;
+    }else  this.minute = ""+this.time.minute;
+
+
+
+
+
+
+
+    this.dateEtHeureSceance = this.model.year +"-"+this.month+"-"+this.day+"T"+this.hour+":"+this.minute ;
     console.log(this.salle);
     this.sceance = new Sceances( this.dateEtHeureSceance, this.movie,this.salle);
     this.sceance.dateEtHeureSceance = this.dateEtHeureSceance;

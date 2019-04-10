@@ -19,11 +19,12 @@ export class CommandeService {
   constructor(private http : HttpClient) { }
 
 
-  sauvegarderCommande(commande: Commande): Observable<Commande> {
+  sauvegarderCommande(sceance: Sceances): Observable<Commande> {
 
+    console.log(sceance);
    
    
-    return this.http.post<Commande>(`${API_BASE_URL}Commande/Create`,  commande)
+    return this.http.post<Commande>(`${API_BASE_URL}Commande/Create`,  sceance)
       
   }
 
@@ -32,4 +33,9 @@ export class CommandeService {
 
     return this.http.get<Commande[]>(`${API_BASE_URL}Commande`);
   }
+
+  supprimerCommande(id: number): Observable<Commande>{
+
+    return this.http.post<Commande>(`${API_BASE_URL}Commande/Delete/${id}`, null)
+  } 
 }
